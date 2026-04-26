@@ -28,7 +28,9 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			count += ft_dispatch(str[i], ap);
+			if (!str[i])
+				break;
+			count += ft_dispatch(str[i], &ap);
 		}
 		else
 			count += write (1, &str[i], 1);
@@ -38,20 +40,20 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-int	ft_dispatch(char type, va_list ap)
+int	ft_dispatch(char type, va_list *ap)
 {
 	if (type == 'c')
-		return (ft_print_char(va_arg(ap, int)));
+		return (ft_print_char(va_arg(*ap, int)));
 	else if (type == 's')
-		return (ft_print_str(va_arg(ap, char *)));
+		return (ft_print_str(va_arg(*ap, char *)));
 	else if (type == 'p')
-		return (ft_print_ptr(va_arg(ap, void *)));
+		return (ft_print_ptr(va_arg(*ap, void *)));
 	else if (type == 'd' || type == 'i')
-		return (ft_print_int(va_arg(ap, int)));
+		return (ft_print_int(va_arg(*ap, int)));
 	else if (type == 'u')
-		return (ft_print_unsigned(va_arg(ap, unsigned int)));
+		return (ft_print_unsigned(va_arg(*ap, unsigned int)));
 	else if (type == 'x' || type == 'X')
-		return (ft_print_hex(va_arg(ap, unsigned int), type));
+		return (ft_print_hex(va_arg(*ap, unsigned int), type));
 	else if (type == '%')
 		return (write (1, "%", 1));
 	return (0);

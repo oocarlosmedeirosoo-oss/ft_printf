@@ -31,8 +31,7 @@ int	ft_print_str(char *str)
 		return (write (1, "(null)", 6));
 	while (str[i])
 	{
-		write (1, &str[i], 1);
-		count++;
+		count += write (1, &str[i], 1);
 		i++;
 	}
 	return (count);

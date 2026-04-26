@@ -1,5 +1,4 @@
-This project has been created as part
-of the 42 curriculum by cbarbosa
+*This project has been created as part of the 42 curriculum by cbarbosa*
 # ft_printf
 
 Reimplementação do comportamento idêntico da função `printf()` da libc em C, desenvolvida como projeto da **42 Lisboa**.
