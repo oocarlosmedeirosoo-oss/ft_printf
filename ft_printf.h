@@ -23,6 +23,5 @@ int	ft_print_int(int n);
 int	ft_print_unsigned(unsigned int n);
 int	ft_print_hex(unsigned long n, char type);
 int	ft_print_ptr(void *ptr);
-int	ft_dispatch(char type, va_list ap);
 
 #endif

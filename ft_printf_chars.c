@@ -17,6 +17,8 @@ int	ft_print_char(char c)
 	int	count;
 
 	count = write (1, &c, 1);
+	if (count == -1)
+		return (-1);
 	return (count);
 }
 
